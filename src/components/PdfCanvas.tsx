@@ -48,7 +48,7 @@ export function PdfCanvas() {
         if (!context) return;
         context.fillStyle = "#ffffff";
         context.fillRect(0, 0, canvas.width, canvas.height);
-        await pdfPage.render({ canvasContext: context, viewport }).promise;
+        await pdfPage.render({ canvas, canvasContext: context, viewport }).promise;
       } catch (err) {
         if (!cancelled) {
           setError(err instanceof Error ? err.message : "Unable to render PDF");
